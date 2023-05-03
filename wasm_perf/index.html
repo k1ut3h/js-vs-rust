@@ -1,0 +1,23 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>prime number calculator</title>
+</head>
+<body>
+<h1>RUST</h1>
+<h1 id="heading"></h1>
+<h2 id="timeTaken"></h2>
+<script type="module">
+import init, {expensive} from "./pkg/wasm_perf.js";
+await init();
+const nth = 100000;
+const start = performance.now();
+let result = expensive(nth);
+let heading = document.getElementById("heading");
+heading.innerHTML = `${nth}th prime number is: ${result}`;
+const end = performance.now();
+let elapsed = end-start;
+let timeTaken = document.getElementById("timeTaken");
+timeTaken.innerHTML = `${elapsed} milliseconds`;
+</script>
+</html> 
